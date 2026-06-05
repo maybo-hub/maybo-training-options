@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maybo — Training Solutions 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #E8541A;
+  --orange-50: #FEF1EB;
+  --orange-100: #FCDDD0;
+  --black: #09090B;
+  --gray-900: #18181B;
+  --gray-700: #3F3F46;
+  --gray-500: #71717A;
+  --gray-400: #A1A1AA;
+  --gray-300: #D4D4D8;
+  --gray-200: #E4E4E7;
+  --gray-100: #F4F4F5;
+  --gray-50: #FAFAFA;
+  --white: #FFFFFF;
+  --green-600: #16A34A;
+  --green-100: #DCFCE7;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--white);color:var(--gray-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── Nav ── */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+.nav-logo{font-size:1.125rem;font-weight:700;letter-spacing:-.03em;color:var(--black);text-decoration:none}
+.nav-logo em{font-style:normal;color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--gray-500);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--black)}
+.nav-btn{background:var(--orange);color:var(--white)!important;padding:.4375rem 1.125rem;border-radius:6px;font-size:.8125rem!important;transition:opacity .15s!important}
+.nav-btn:hover{opacity:.88}
+
+/* ── Hero ── */
+.hero{text-align:center;padding:7rem 1.5rem 6rem;max-width:700px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:.375rem;background:var(--orange-50);color:var(--orange);border:1px solid var(--orange-100);padding:.3125rem .875rem;border-radius:100px;font-size:.8125rem;font-weight:500;letter-spacing:.01em;margin-bottom:1.75rem}
+.badge svg{width:14px;height:14px}
+h1{font-size:3.25rem;font-weight:700;letter-spacing:-.05em;line-height:1.08;color:var(--black);margin-bottom:1.25rem}
+.hero p{font-size:1.0625rem;color:var(--gray-500);max-width:520px;margin:0 auto 2.5rem;line-height:1.75}
+.hero-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:var(--white);padding:.6875rem 1.625rem;border-radius:8px;font-weight:500;font-size:.9375rem;text-decoration:none;display:inline-block;transition:opacity .15s}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--gray-700);padding:.6875rem 1.625rem;border-radius:8px;font-weight:500;font-size:.9375rem;text-decoration:none;display:inline-block;border:1px solid var(--gray-200);transition:background .15s}
+.btn-ghost:hover{background:var(--gray-50)}
+
+/* ── Page sections ── */
+.page-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+.divider{border:none;border-top:1px solid var(--gray-200);margin:0 2rem}
+.section-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.625rem}
+.section-title{font-size:2rem;font-weight:700;letter-spacing:-.04em;color:var(--black);margin-bottom:.75rem}
+.section-desc{font-size:.9375rem;color:var(--gray-500);max-width:540px;line-height:1.75;margin-bottom:3rem}
+
+/* ── Sub-section ── */
+.sub-heading{font-size:1.125rem;font-weight:600;letter-spacing:-.025em;color:var(--black);margin-bottom:.375rem}
+.sub-desc{font-size:.875rem;color:var(--gray-500);line-height:1.7;margin-bottom:2rem;max-width:520px}
+
+/* ── Tier grid ── */
+.tier-grid{display:grid;gap:1rem}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-2{grid-template-columns:1fr 1.5fr}
+
+/* ── Tier card ── */
+.card{border:1px solid var(--gray-200);border-radius:12px;padding:1.75rem;background:var(--white);display:flex;flex-direction:column;transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.card.recommended{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.card.recommended .card-tag{background:var(--orange);color:var(--white)}
+.card-tag{display:inline-block;font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:var(--gray-100);color:var(--gray-500);padding:.25rem .625rem;border-radius:100px;margin-bottom:1rem}
+.card-name{font-size:1rem;font-weight:600;letter-spacing:-.02em;color:var(--black);margin-bottom:.3125rem}
+.card-sub{font-size:.8125rem;color:var(--gray-500);line-height:1.55;margin-bottom:1.25rem;flex-grow:0}
+.card-cta{display:block;text-align:center;padding:.5625rem 1rem;border-radius:6px;font-size:.8125rem;font-weight:500;text-decoration:none;border:1px solid var(--gray-200);color:var(--gray-700);background:var(--white);margin-bottom:1.5rem;transition:background .15s,border-color .15s;cursor:pointer}
+.card-cta:hover{background:var(--gray-50);border-color:var(--gray-300)}
+.recommended .card-cta{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.recommended .card-cta:hover{opacity:.88;background:var(--orange)}
+
+/* ── Feature list ── */
+.features-label{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.625rem}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.feature-item{display:flex;align-items:flex-start;gap:.5rem;font-size:.8125rem;color:var(--gray-700);line-height:1.45}
+.feature-item svg{flex-shrink:0;width:15px;height:15px;margin-top:1px}
+.feature-item.off{color:var(--gray-400)}
+.check-icon{color:var(--green-600)}
+.cross-icon{color:var(--gray-300)}
+
+/* ── Curriculum pills ── */
+.pill-row{display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:1.25rem}
+.pill{display:inline-flex;align-items:center;padding:.25rem .625rem;border-radius:100px;font-size:.6875rem;font-weight:500}
+.pill.on{background:var(--green-100);color:var(--green-600)}
+.pill.off{background:var(--gray-100);color:var(--gray-400)}
+.section-sep{margin:1.25rem 0 .875rem;padding-top:.875rem;border-top:1px solid var(--gray-100)}
+
+/* ── Info bar ── */
+.info-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--gray-200);border-radius:12px;overflow:hidden;margin-top:1.5rem}
+.info-cell{padding:1.25rem 1.5rem;border-right:1px solid var(--gray-200)}
+.info-cell:last-child{border-right:none}
+.info-cell h4{font-size:.8125rem;font-weight:600;color:var(--black);margin-bottom:.25rem}
+.info-cell p{font-size:.75rem;color:var(--gray-500);line-height:1.6}
+
+/* ── Hosted card layout ── */
+.hosted-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:1rem;max-width:720px}
+.hosted-desc{border:1px solid var(--gray-200);border-radius:12px;padding:1.75rem;background:var(--gray-50)}
+.hosted-desc p{font-size:.875rem;color:var(--gray-600,var(--gray-500));line-height:1.75;margin-bottom:1rem}
+.hosted-desc p:last-child{margin-bottom:0}
+.hosted-desc strong{color:var(--gray-700);font-weight:600}
+
+/* ── CTA strip ── */
+.cta-strip{text-align:center;padding:5rem 2rem;border-top:1px solid var(--gray-200)}
+.cta-strip .section-eyebrow{display:inline-block;margin-bottom:.75rem}
+.cta-strip h2{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;color:var(--black);margin-bottom:.875rem}
+.cta-strip p{font-size:.9375rem;color:var(--gray-500);max-width:480px;margin:0 auto 2.25rem;line-height:1.75}
+.cta-strip .hero-actions{justify-content:center}
+.cta-note{margin-top:1.25rem;font-size:.75rem;color:var(--gray-400)}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--gray-200);background:var(--gray-50);padding:2.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-size:1rem;font-weight:700;letter-spacing:-.03em;color:var(--black)}
+.footer-logo em{font-style:normal;color:var(--orange)}
+.footer-tagline{font-size:.75rem;color:var(--gray-400);margin-top:.2rem}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:.8125rem;color:var(--gray-500);text-decoration:none}
+.footer-links a:hover{color:var(--gray-900)}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .info-bar{grid-template-columns:repeat(2,1fr)}
+  .info-cell:nth-child(2){border-right:none}
+  .info-cell:nth-child(3){border-top:1px solid var(--gray-200)}
+  .info-cell:nth-child(4){border-top:1px solid var(--gray-200)}
+}
+@media(max-width:640px){
+  h1{font-size:2.25rem}
+  .nav-links{display:none}
+  .grid-4,.grid-2,.hosted-grid{grid-template-columns:1fr}
+  .info-bar{grid-template-columns:1fr}
+  .info-cell{border-right:none!important;border-top:1px solid var(--gray-200)}
+  .info-cell:first-child{border-top:none}
+  .footer-inner{flex-direction:column;gap:1.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">may<em>bo</em></a>
+  <ul class="nav-links">
+    <li><a href="#elearning">eLearning</a></li>
+    <li><a href="#trainer">Trainer Subscriptions</a></li>
+    <li><a href="#team">Team Training</a></li>
+    <li><a href="#contact" class="nav-btn">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5.5"/><path d="M7 4.5v3l2 1.5"/></svg>
+    2026–2027
+  </div>
+  <h1>Training for positive, safer outcomes</h1>
+  <p>eLearning, in-house trainer programmes, and expert-led team training — built around your organisation's specific risks and needs.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get in touch</a>
+    <a href="#elearning" class="btn-ghost">Explore services</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- eLearning -->
+<section class="page-section" id="elearning">
+  <div class="section-eyebrow">eLearning</div>
+  <h2 class="section-title">Flexible digital learning</h2>
+  <p class="section-desc">Highly interactive modules for induction, refresher, and blended learning — hosted by Maybo or distributed through your own LMS.</p>
+
+  <!-- Maybo Hosted -->
+  <div class="sub-heading">Maybo Hosted</div>
+  <p class="sub-desc">Enrol individuals or groups directly onto Maybo's platform. No LMS required — Maybo handles everything.</p>
+  <div class="hosted-grid">
+    <div class="card recommended">
+      <span class="card-tag">All-inclusive</span>
+      <div class="card-name">Maybo Hosted</div>
+      <div class="card-sub">Per-person, per-module enrolment. Volume discounts available for 20+, 50+, and 100+ enrolments.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">What's included</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>End-user support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Maybo certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Administration &amp; reporting</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Blended programme option</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Latest module versions</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous warranty</li>
+      </ul>
+    </div>
+    <div class="hosted-desc">
+      <p>Maybo Hosted is the all-inclusive option — no IT setup or LMS needed. Learners enrol directly, and you get full reporting, certification management, and end-user support.</p>
+      <p>All modules are WCAG, SCORM, and TIN CAN compliant with voiceover and screen-reader support.</p>
+      <p><strong>Volume pricing available</strong> — discounts apply automatically at 20–49, 50–99, and 100+ enrolments per module.</p>
+    </div>
+  </div>
+
+  <!-- Hosting Licences -->
+  <div class="sub-heading" style="margin-top:3rem">Hosting Licences</div>
+  <p class="sub-desc">Distribute Maybo eLearning through your own LMS via SCORM 1.2, 2004, or TIN CAN. Annual licences sized by your workforce.</p>
+  <div class="tier-grid grid-4">
+
+    <div class="card">
+      <span class="card-tag">Up to 250</span>
+      <div class="card-name">Small Team</div>
+      <div class="card-sub">Organisations with fewer than 250 people.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Included</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Blended programme option</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Latest module versions</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous warranty</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS files (SCORM 1.2, 2004, TIN CAN)</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS administrator support</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Customised intro module</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Personalised branding</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Up to 1,000</span>
+      <div class="card-name">Medium Team</div>
+      <div class="card-sub">Organisations with fewer than 1,000 people.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Included</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Blended programme option</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Latest module versions</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous warranty</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS files (SCORM 1.2, 2004, TIN CAN)</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS administrator support</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Customised intro module</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Personalised branding</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Up to 3,000</span>
+      <div class="card-name">Large Team</div>
+      <div class="card-sub">Organisations with fewer than 3,000 people.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Included</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Blended programme option</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Latest module versions</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous warranty</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS files (SCORM 1.2, 2004, TIN CAN)</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS administrator support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Customised intro module</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Personalised branding</li>
+      </ul>
+    </div>
+
+    <div class="card recommended">
+      <span class="card-tag">Unlimited</span>
+      <div class="card-name">Unlimited</div>
+      <div class="card-sub">No user cap. Full customisation and branding included.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Included</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Blended programme option</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Latest module versions</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous warranty</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS files (SCORM 1.2, 2004, TIN CAN)</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>LMS administrator support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Customised intro module</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Personalised branding</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Trainer Subscriptions -->
+<section class="page-section" id="trainer">
+  <div class="section-eyebrow">Trainer Subscriptions</div>
+  <h2 class="section-title">Build in-house training capability</h2>
+  <p class="section-desc">Register in-house trainers to deliver certified Maybo programmes to unlimited colleagues. Ongoing CPD and senior support included at every level.</p>
+
+  <div class="tier-grid grid-4">
+
+    <div class="card">
+      <span class="card-tag">Level 1</span>
+      <div class="card-name">Prevention &amp; De-escalation</div>
+      <div class="card-sub">Foundational skills for conflict prevention and safe de-escalation.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill off">Personal Safety</span>
+        <span class="pill off">Safer Holding</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Subscription includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unlimited training delivery</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Trainer development &amp; CPD</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Senior trainer support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Leading-edge delivery resources</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Level 2</span>
+      <div class="card-name">+ Personal Safety</div>
+      <div class="card-sub">Everything in Level 1, plus personal safety skills training.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill off">Safer Holding</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Subscription includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unlimited training delivery</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Trainer development &amp; CPD</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Senior trainer support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Leading-edge delivery resources</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Level 3</span>
+      <div class="card-name">+ Safer Holding</div>
+      <div class="card-sub">Everything in Level 2, plus safer holding skills training.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill on">Safer Holding</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Subscription includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unlimited training delivery</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Trainer development &amp; CPD</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Senior trainer support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Leading-edge delivery resources</li>
+      </ul>
+    </div>
+
+    <div class="card recommended">
+      <span class="card-tag">Level 4</span>
+      <div class="card-name">Full Curriculum</div>
+      <div class="card-sub">The complete Maybo curriculum — all four skill areas.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill on">Safer Holding</span>
+        <span class="pill on">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Subscription includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unlimited training delivery</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Trainer development &amp; CPD</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Senior trainer support</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Continuous certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Leading-edge delivery resources</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="info-bar">
+    <div class="info-cell">
+      <h4>Minimum contract</h4>
+      <p>24-month term. Subscriptions auto-renew annually until cancelled.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Trainer reassignment</h4>
+      <p>Subscriptions can be reassigned to new or existing certified trainers once every 12 months.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Volume discounts</h4>
+      <p>Discounts available when purchasing 3 or more subscriptions across any level.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Open courses included</h4>
+      <p>Trainers attend Maybo open train-the-trainer courses free of charge (initial and refresher).</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Team Training -->
+<section class="page-section" id="team">
+  <div class="section-eyebrow">Team Training</div>
+  <h2 class="section-title">Expert-led training for your workforce</h2>
+  <p class="section-desc">Maybo Senior Trainers deliver bespoke onsite or virtual programmes across the UK and Ireland — contextualised to your organisation's specific risks and scenarios.</p>
+
+  <div class="tier-grid grid-4">
+
+    <div class="card">
+      <span class="card-tag">Level 1</span>
+      <div class="card-name">Prevention &amp; De-escalation</div>
+      <div class="card-sub">Focused on communication, conflict prevention, and de-escalation. Max 15 participants.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill off">Personal Safety</span>
+        <span class="pill off">Holding Skills</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Course includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Contextualised programme</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Maybo certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Interactive aide-mémoire</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Post-course report</li>
+        <li class="feature-item off"><svg class="cross-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Evidence-based skill selection</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Level 2</span>
+      <div class="card-name">+ Personal Safety</div>
+      <div class="card-sub">Extends Level 1 with personal safety skills. Max 12 participants.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill off">Holding Skills</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Course includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Contextualised programme</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Maybo certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Interactive aide-mémoire</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Post-course report</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Evidence-based skill selection</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Level 3</span>
+      <div class="card-name">+ Holding Skills</div>
+      <div class="card-sub">Adds holding skills to the full feature set. Max 12 participants.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill on">Holding Skills</span>
+        <span class="pill off">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Course includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Contextualised programme</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Maybo certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Interactive aide-mémoire</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Post-course report</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Evidence-based skill selection</li>
+      </ul>
+    </div>
+
+    <div class="card recommended">
+      <span class="card-tag">Level 4</span>
+      <div class="card-name">Full Curriculum</div>
+      <div class="card-sub">The complete programme including specialist holding skills. Max 12 participants.</div>
+      <a href="#contact" class="card-cta">Get a quote</a>
+      <div class="features-label">Curriculum</div>
+      <div class="pill-row">
+        <span class="pill on">Prevention &amp; De-escalation</span>
+        <span class="pill on">Personal Safety</span>
+        <span class="pill on">Holding Skills</span>
+        <span class="pill on">Specialist Holding</span>
+      </div>
+      <div class="section-sep"></div>
+      <div class="features-label">Course includes</div>
+      <ul class="feature-list">
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Contextualised programme</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Maybo certification</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Interactive aide-mémoire</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Post-course report</li>
+        <li class="feature-item"><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Evidence-based skill selection</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="info-bar">
+    <div class="info-cell">
+      <h4>Onsite &amp; virtual</h4>
+      <p>Senior Trainers deliver across the UK and Ireland. Virtual delivery available on all levels.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Volume discounts</h4>
+      <p>Discounts for 5–14, 15–29, and 30+ courses. Charity and advance-booking discounts also available.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Blended option</h4>
+      <p>Add eLearning modules to any course to extend and reinforce learning.</p>
+    </div>
+    <div class="info-cell">
+      <h4>Accreditation</h4>
+      <p>Optional City &amp; Guilds or BILD ACT accreditation available on request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip" id="contact">
+  <div class="section-eyebrow">Get in touch</div>
+  <h2>Find the right solution for your organisation</h2>
+  <p>Talk to us about training needs, volume pricing, or blended learning options. We'll help identify the right level and format.</p>
+  <div class="hero-actions">
+    <a href="mailto:hello@maybo.com" class="btn-primary">Contact us</a>
+    <a href="https://maybo.training" class="btn-ghost" target="_blank" rel="noopener">maybo.training</a>
+  </div>
+  <p class="cta-note">All prices in GBP, subject to VAT. Minimum contract 24 months. Subject to Maybo's <a href="https://maybo.training/msa-terms-and-conditions" style="color:inherit">terms and conditions</a>.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">may<em>bo</em></div>
+      <div class="footer-tagline">positive and safer outcomes</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://maybo.training/msa-terms-and-conditions" target="_blank" rel="noopener">Terms &amp; Conditions</a></li>
+      <li><a href="https://maybo.training" target="_blank" rel="noopener">maybo.training</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
