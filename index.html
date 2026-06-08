@@ -405,18 +405,18 @@ body{
 <!-- Service navigation buttons -->
 <div class="service-nav">
   <div class="service-nav-inner">
-    <a href="#elearning" class="service-btn">
+    <div class="service-btn">
       <span class="service-btn-label">eLearning</span>
       <span class="service-btn-title">Flexible Digital Learning Options</span>
-    </a>
-    <a href="#trainer" class="service-btn">
+    </div>
+    <div class="service-btn">
       <span class="service-btn-label">Trainer Subscriptions</span>
       <span class="service-btn-title">In-house Capability</span>
-    </a>
-    <a href="#team" class="service-btn">
+    </div>
+    <div class="service-btn">
       <span class="service-btn-label">Team Training</span>
       <span class="service-btn-title">Training Delivered By Our Experts</span>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -789,18 +789,6 @@ const ro = new ResizeObserver(sendHeight);
 ro.observe(document.body);
 window.addEventListener('load', sendHeight);
 
-// Intercept anchor clicks and ask parent page to scroll instead
-document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      var offset = target.getBoundingClientRect().top + window.pageYOffset;
-      window.parent.postMessage({ type: 'iframeScrollTo', offset: offset }, '*');
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
 </script>
 </body>
 </html>
